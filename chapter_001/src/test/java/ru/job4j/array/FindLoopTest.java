@@ -26,4 +26,26 @@ public class FindLoopTest {
         int expect = -1;
         assertThat(result, is(expect));
     }
+
+    @Test
+    public void whenFind34TheNot() {
+        int[] input = new int[]{3, 1, 8, 7, 4};
+        int value = 34;
+        int start = 0;
+        int finish = 3;
+        int result = FindLoop.indexOf(input, value, start, finish);
+        int expect = -1;
+        assertThat(result, is(expect));
+    }
+
+    @Test
+    public void whenFind7Then3() {
+        int[] input = new int[]{1, 4, 35, 7, 8};
+        int value = 7;
+        int start = 1;
+        int finish = 4;
+        int result = FindLoop.indexOf(input, value, start, finish);
+        int expect = 3;
+        assertThat(result, is(expect));
+    }
 }
