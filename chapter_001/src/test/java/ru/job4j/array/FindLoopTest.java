@@ -48,4 +48,15 @@ public class FindLoopTest {
         int expect = 3;
         assertThat(result, is(expect));
     }
+
+    @Test
+    public void whenSortArrayOfThreeElementsThenSortedArray() {
+        assertThat(FindLoop.sortSelected(new int[] {8,3,71}), is(new int[] {3,8,71}));
+    }
+
+    @Test
+    public void whenSortArrayOfFiveElementsThenSortedArray() {
+        assertThat(FindLoop.sortSelected(new int[] {3,4,-1, 25,1}), is(new int[] {-1,1,3,4,25}));
+    }
+
 }

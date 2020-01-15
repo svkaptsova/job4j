@@ -4,7 +4,7 @@ package ru.job4j.array;
  * FindLoop Класс для поиска элемента методом перебора.
  *
  * @author Svetlana Kaptsova
- * @version 1.1
+ * @version 1.2
  * @since 11.01.2020
  */
 public class FindLoop {
@@ -45,5 +45,24 @@ public class FindLoop {
             }
         }
         return rst;
+    }
+
+    /**
+     * Упорядочение элементов массива по возрастанию
+     *
+     * @param data - массив чисел
+     * min - минимальное значение диапазоне
+     * index - индекс элемента с минимальным значением
+     * @return - упорядоченный массив
+     */
+    public static int[] sortSelected(int[] data) {
+        for (int ind = 0; ind < (data.length - 1); ind++) {
+            int min = MinDiapason.findMin(data, ind, (data.length - 1));
+            int index = FindLoop.indexOf(data, min, ind, (data.length - 1));
+            int temp = data[index];
+            data[index] = data[ind];
+            data[ind] = temp;
+        }
+        return data;
     }
 }
