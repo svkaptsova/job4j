@@ -1,10 +1,10 @@
 package ru.job4j.array;
 
 /**
- * MatrixCheck Класс для проверки строк и столбцов массива.
+ * MatrixCheck Класс для работы с элементами двумерного массива.
  *
  * @author Svetlana Kaptsova
- * @version 1.1
+ * @version 1.2
  * @since 17.01.2020
  */
 
@@ -14,7 +14,7 @@ public class MatrixCheck {
      * Проверяет, что вся строка заполнена 'X'
      *
      * @param board - массив
-     * @param row - строка
+     * @param row   - строка
      * @return - true (если вся строка заполнена только 'X'), либо false
      */
     public static boolean monoHorizontal(char[][] board, int row) {
@@ -31,7 +31,7 @@ public class MatrixCheck {
     /**
      * Проверяет, что весь столбец заполнен 'X'
      *
-     * @param board - массив
+     * @param board  - массив
      * @param column - столбец
      * @return - true (если весь столбец заполнен только 'X'), либо false
      */
@@ -44,5 +44,20 @@ public class MatrixCheck {
             }
         }
         return result;
+    }
+
+    /**
+     * Заполняет одномерный массив элементами диагонали матрицы
+     *
+     * @param board - матрица
+     * rsl - одномерный массив
+     * @return - заполненный одномерный массив
+     */
+    public static char[] extractDiagonal(char[][] board) {
+        char[] rsl = new char[board.length];
+        for (int i = 0; i < rsl.length; i++) {
+            rsl[i] = board[i][i];
+        }
+        return rsl;
     }
 }
