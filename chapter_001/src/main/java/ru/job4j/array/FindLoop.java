@@ -51,8 +51,6 @@ public class FindLoop {
      * Упорядочение элементов массива по возрастанию
      *
      * @param data - массив чисел
-     * min - минимальное значение диапазоне
-     * index - индекс элемента с минимальным значением
      * @return - упорядоченный массив
      */
     public static int[] sortSelected(int[] data) {

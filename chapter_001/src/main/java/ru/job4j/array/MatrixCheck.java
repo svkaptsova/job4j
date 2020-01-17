@@ -4,7 +4,7 @@ package ru.job4j.array;
  * MatrixCheck Класс для работы с элементами двумерного массива.
  *
  * @author Svetlana Kaptsova
- * @version 1.2
+ * @version 1.3
  * @since 17.01.2020
  */
 
@@ -50,7 +50,6 @@ public class MatrixCheck {
      * Заполняет одномерный массив элементами диагонали матрицы
      *
      * @param board - матрица
-     * rsl - одномерный массив
      * @return - заполненный одномерный массив
      */
     public static char[] extractDiagonal(char[][] board) {
@@ -59,5 +58,25 @@ public class MatrixCheck {
             rsl[i] = board[i][i];
         }
         return rsl;
+    }
+
+    /**
+     * Проверяет наличие в массиве выигрышной комбинации (игра Сокобан)
+     *
+     * @param board - матрица (игровое поле)
+     * @return - true (если в массиве есть хотя бы один столбец или строка, заполненные 'X'),
+     * либо false если выигрышной комбинации нет
+     */
+    public static boolean isWin(char[][] board) {
+        boolean result = false;
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][i] == 'X') {
+                if (monoHorizontal(board, i) || monoVertical(board, i)) {
+                    result = true;
+                    break;
+                }
+            }
+        }
+        return result;
     }
 }
