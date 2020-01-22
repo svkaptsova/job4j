@@ -7,12 +7,10 @@ public class Board {
                 int a = row + cell;
                 if (a % 2 == 0) {
                     System.out.print("X");
-                }
-                else {
+                } else {
                     System.out.print(" ");
                 }
             }
-
             System.out.println();
         }
     }

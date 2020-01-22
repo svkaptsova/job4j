@@ -19,6 +19,7 @@ public class ConverterTest {
         int out = Converter.rubleToDollar(in);
         Assert.assertEquals(expected, out);
     }
+
     @Test
     public void euroToRuble() {
         int in = 4;
@@ -26,7 +27,9 @@ public class ConverterTest {
         int out = Converter.euroToRuble(in);
         Assert.assertEquals(expected, out);
 
-    }@Test
+    }
+
+    @Test
     public void dollarToRuble() {
         int in = 7;
         int expected = 420;

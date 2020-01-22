@@ -5,7 +5,7 @@ public class Main {
         System.out.println("Hello World");
         float high = 154.9f;
         double cosmic = 8.000_000_000_000d;
-        long stones = 800_000l;
+        long stones = 800_000L;
         char sex = 'w';
         boolean work = true;
 
