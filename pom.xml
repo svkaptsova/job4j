@@ -10,6 +10,7 @@
     <version>3.0</version>
     <modules>
         <module>chapter_001</module>
+		<module>games</module>
     </modules>
 
     <properties>
@@ -48,6 +49,7 @@
                         <encoding>UTF-8</encoding>
                         <consoleOutput>true</consoleOutput>
                         <failsOnError>true</failsOnError>
+                        <excludes>**/module-info.java</excludes>
                         <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     </configuration>
                     <goals>
