@@ -16,7 +16,5 @@ public class DummyDic {
         DummyDic translator = new DummyDic();
         String word = "enough";
         System.out.println("Неизвестное слово: " + translator.engToRus(word));
-
-
     }
 }
