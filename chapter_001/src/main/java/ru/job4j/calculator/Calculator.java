@@ -5,19 +5,26 @@ package ru.job4j.calculator;
  *
  * @author Svetlana Kaptsova
  * @version 1.1
- * @since 10.01.2020
+ * @since 22.01.2020
  */
 public class Calculator {
     /**
      * Сложение
      *
-     * @param first  первый аргумент
+     * @param first первый аргумент
      * @param second второй аргумент
-     *               result сумма
+     * @return сумма
      */
-    public static void add(double first, double second) {
-        double result = first + second;
-        System.out.println(first + "+" + second + "=" + result);
+    public int add(int first, int second) {
+        return first + second;
+    }
+
+    public int add(int first, int second, int third) {
+        return add(add(first, second), third);
+    }
+
+    public int add(int first, int second, int third, int fourth) {
+        return add(add(first, second, third), fourth);
     }
 
     /**
@@ -66,8 +73,6 @@ public class Calculator {
      *             subtract вычитает
      */
     public static void main(String[] args) {
-        add(1, 1);
-        add(2, 2);
         div(4, 2);
         multiply(2, 1);
         subtract(10, 5);
