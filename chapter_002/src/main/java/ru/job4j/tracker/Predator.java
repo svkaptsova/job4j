@@ -1,8 +1,19 @@
 package ru.job4j.tracker;
 
 public class Predator extends Animal {
-    public Predator() {
-        super();
-        System.out.println("Predator");
+    private String species;
+
+    public Predator(String anim, String otryad) {
+        super(anim, otryad);
+    }
+
+    public Predator(String anim, String otryad, String spec) {
+        super(anim, otryad);
+        this.species = spec;
+        System.out.println(spec);
+    }
+
+    public static void main(String[] args) {
+        Predator predator = new Predator("Animal", "Predator");
     }
 }
