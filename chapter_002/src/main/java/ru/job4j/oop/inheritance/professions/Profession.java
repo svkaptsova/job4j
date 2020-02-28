@@ -1,5 +1,12 @@
-package ru.job4j.tracker;
+package ru.job4j.oop.inheritance.professions;
 
+/**
+ * Profession  - класс для демонстрации создания иерархии классов при наследовании.
+ *
+ * @author Svetlana Kaptsova (svkapcova@gmail.com)
+ * @version 1.1
+ * @since 1.0
+ */
 public class Profession {
     private String name;
     private String surname;
@@ -14,6 +21,6 @@ public class Profession {
     }
 
     public String getName() {
-        return name;
+        return null;
     }
 }
