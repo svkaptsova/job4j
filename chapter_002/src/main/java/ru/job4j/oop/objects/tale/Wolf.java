@@ -1,4 +1,6 @@
-package ru.job4j.oop;
+package ru.job4j.oop.objects.tale;
+
+import ru.job4j.oop.objects.tale.Ball;
 
 /**
  * Wolf Класс для сказки про колобка.

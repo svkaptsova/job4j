@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.oop.objects;
 
 /**
  * Battery Класс для примера взаимодействия объектов.

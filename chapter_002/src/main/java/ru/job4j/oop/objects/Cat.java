@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.oop.objects;
 
 /**
  * Cat Пробный класс для работы с полями объектов.

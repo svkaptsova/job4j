@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.oop.objects;
 
 /**
  * Dog Пробный класс для тренировки создания объектов.
