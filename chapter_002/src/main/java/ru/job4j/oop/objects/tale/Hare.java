@@ -1,4 +1,5 @@
 package ru.job4j.oop.objects.tale;
+import ru.job4j.oop.objects.tale.Ball;
 
 /**
  * Hare Класс для сказки про колобка.
