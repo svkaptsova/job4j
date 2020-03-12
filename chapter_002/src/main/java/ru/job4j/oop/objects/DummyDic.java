@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.oop.objects;
 
 /**
  * DummyDic Пробный класс для тренировки вызова метода с возвращаемым типом
