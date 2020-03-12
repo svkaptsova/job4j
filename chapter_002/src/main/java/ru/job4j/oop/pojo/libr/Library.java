@@ -36,7 +36,7 @@ public class Library {
 
         for (int i = 0; i < books.length; i++) {
             Book bk = books[i];
-            if (bk.getTitle() == "Clean Code") {
+            if ("Clean Code".equals(bk.getTitle())) {
                 System.out.println(bk.getTitle() + " " + bk.getPages() + "p.");
             }
         }
