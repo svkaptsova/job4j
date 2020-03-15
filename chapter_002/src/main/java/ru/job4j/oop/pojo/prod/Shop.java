@@ -1,6 +1,20 @@
 package ru.job4j.oop.pojo.prod;
 
 public class Shop {
+
+    public static void print(Product[] prods) {
+        int i;
+        for (i = 0; i < prods.length; i++) {
+            Product pr = prods[i];
+            if (pr != null) {
+                System.out.println(pr.getName() + " - " + pr.getCount());
+            } else {
+                System.out.println("null");
+            }
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         Product milk = new Product("Milk", 10);
         Product bread = new Product("Bread", 4);
@@ -12,49 +26,22 @@ public class Shop {
         prods[1] = bread;
         prods[2] = egg;
 
-        int i;
-
-        for (i = 0; i < prods.length; i++) {
-            Product pr = prods[i];
-            if (pr != null) {
-                System.out.println(pr.getName() + " - " + pr.getCount());
-            } else {
-                System.out.println("null");
-            }
-        }
-
-        System.out.println();
+        Shop.print(prods);
 
         prods[1] = null;
 
-        for (i = 0; i < prods.length; i++) {
-            Product pr = prods[i];
-            if (pr != null) {
-                System.out.println(pr.getName() + " - " + pr.getCount());
-            } else {
-                System.out.println("null");
-            }
-        }
+        Shop.print(prods);
 
-        System.out.println();
-
-        for (i = 1; i < prods.length - 1; i++) {
-            Product temp = prods[i];
-            prods[i] = prods[i + 1];
-            prods[i + 1] = temp;
+        for (int j = 1; j < prods.length - 1; j++) {
+            Product temp = prods[j];
+            prods[j] = prods[j + 1];
+            prods[j + 1] = temp;
             prods[prods.length - 1] = null;
         }
 
         prods[prods.length - 1] = null;
 
-        for (i = 0; i < prods.length; i++) {
-            Product pr = prods[i];
-            if (pr != null) {
-                System.out.println(pr.getName() + " - " + pr.getCount());
-            } else {
-                System.out.println("null");
-            }
-        }
+        Shop.print(prods);
     }
 }
 
