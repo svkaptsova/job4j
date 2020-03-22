@@ -7,7 +7,7 @@ import java.util.Random;
  * Tracker - Класс для создания и хранения заявок.
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.0
+ * @version 1.1
  * @since 1.0
  */
 public class Tracker {
@@ -44,42 +44,44 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] notNull = new Item[items.length];
+        Item[] result = new Item[items.length];
         int size = 0;
         for (int i = 0; i < items.length; i++) {
             Item name = items[i];
             if (name != null) {
-                notNull[size] = name;
+                result[size] = name;
                 size++;
             }
         }
-        notNull = Arrays.copyOf(notNull, size);
-        return notNull;
+        result = Arrays.copyOf(result, size);
+        return result;
     }
 
-    Item[] findByName(String key) {
-        Item[] eName = new Item[findAll().length];
+    Item[] findByName(Item item) {
+        Item[] temp = findAll();
+        Item[] result = new Item[temp.length];
         int size = 0;
-        for (int i = 0; i < findAll().length; i++) {
-            Item name = findAll()[i];
-            if (name.getName().equals(key)) {
-                eName[size] = name;
+        for (int i = 0; i < temp.length; i++) {
+            Item name = temp[i];
+            if (name.getName().equals(item.getId())) {
+                result[size] = name;
                 size++;
             }
         }
-            eName = Arrays.copyOf(eName, size);
-            return eName;
+        result = Arrays.copyOf(result, size);
+        return result;
     }
 
-        Item findById (String code){
-        Item eId = null;
-            for (int i = 0; i < findAll().length; i++) {
-                Item id = findAll()[i];
-                if (id.getId().equals(code)) {
-                    eId = id;
-                    break;
-                }
+    Item findById(Item item) {
+        Item[] temp = findAll();
+        Item result = null;
+        for (int i = 0; i < temp.length; i++) {
+            Item id = temp[i];
+            if (id.getId().equals(item.getId())) {
+                result = id;
+                break;
             }
-            return eId;
         }
+        return result;
+    }
 }
