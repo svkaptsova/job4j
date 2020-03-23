@@ -29,9 +29,10 @@ public class TrackerTest {
         Item item1 = new Item("First");
         Item item2 = new Item("Second");
         Item item3 = new Item("First");
-        Item item4 = new Item("Four");
+        Item item4 = new Item("First");
         Item[] expected = {tracker.add(item1), tracker.add(item3)};
-        assertThat(tracker.findAll(), is(expected));
+        Item[] actual = tracker.findByName(item4);
+        assertThat(actual, is(expected));
     }
 
     @Test
@@ -42,7 +43,8 @@ public class TrackerTest {
         Item item3 = new Item("Third");
         Item item4 = new Item("Four");
         Item[] items = {tracker.add(item1), tracker.add(item2), tracker.add(item3), tracker.add(item4)};
-        assertThat(tracker.findById(item3), is(items[2]));
+        Item actual = tracker.findById(item3);
+        assertThat(actual, is(items[2]));
     }
 
     @Test
@@ -53,7 +55,8 @@ public class TrackerTest {
         Item item3 = new Item("Third");
         Item item4 = new Item("Four");
         Item item = null;
+        Item actual = tracker.findById(item4);
         Item[] items = {tracker.add(item1), tracker.add(item2), tracker.add(item3)};
-        assertThat(tracker.findById(item4), is(item));
+        assertThat(actual, is(item));
     }
 }

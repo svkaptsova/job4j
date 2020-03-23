@@ -7,7 +7,7 @@ import java.util.Random;
  * Tracker - Класс для создания и хранения заявок.
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class Tracker {
@@ -63,7 +63,7 @@ public class Tracker {
         int size = 0;
         for (int i = 0; i < temp.length; i++) {
             Item name = temp[i];
-            if (name.getName().equals(item.getId())) {
+            if (name.getName().equals(item.getName())) {
                 result[size] = name;
                 size++;
             }
