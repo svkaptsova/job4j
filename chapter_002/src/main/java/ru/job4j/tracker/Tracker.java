@@ -4,27 +4,28 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Tracker - Класс для создания и хранения заявок.
+ * Tracker - Класс для CRUD-операций с заявками
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.3
+ * @version 1.4
  * @since 1.0
  */
 public class Tracker {
+
     /**
-     * Массив для хранения заявок.
+     * Массив для хранения заявок
      */
     private final Item[] items = new Item[100];
 
     /**
-     * Указатель ячейки для новой заявки.
+     * Указатель ячейки для новой заявки
      */
     private int position = 0;
 
     /**
      * Метод добавления заявки в хранилище
      *
-     * @param item новая заявка
+     * @param item - новая заявка
      */
     public Item add(Item item) {
         item.setId(generateId());
@@ -33,16 +34,20 @@ public class Tracker {
     }
 
     /**
-     * Метод генерирует уникальный ключ для заявки.
-     * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+     * Метод генерирует уникальный ключ для заявки
      *
-     * @return Уникальный ключ.
+     * @return - уникальный ключ
      */
     private String generateId() {
         Random rm = new Random();
         return String.valueOf(rm.nextLong() + System.currentTimeMillis());
     }
 
+    /**
+     * Метод для получения списка всех заявок
+     *
+     * @return массив заявок без пустых ячеек
+     */
     public Item[] findAll() {
         Item[] result = new Item[items.length];
         int size = 0;
@@ -57,14 +62,20 @@ public class Tracker {
         return result;
     }
 
-    Item[] findByName(Item item) {
+    /**
+     * Метод для поиска заявки по имени
+     *
+     * @param name - имя заявки
+     * @return - массив заявок с искомым именем
+     */
+    Item[] findByName(String name) {
         Item[] temp = findAll();
         Item[] result = new Item[temp.length];
         int size = 0;
         for (int i = 0; i < temp.length; i++) {
-            Item name = temp[i];
-            if (name.getName().equals(item.getName())) {
-                result[size] = name;
+            Item item = temp[i];
+            if (item.getName().equals(name)) {
+                result[size] = item;
                 size++;
             }
         }
@@ -72,16 +83,45 @@ public class Tracker {
         return result;
     }
 
-    Item findById(Item item) {
-        Item[] temp = findAll();
-        Item result = null;
-        for (int i = 0; i < temp.length; i++) {
-            Item id = temp[i];
-            if (id.getId().equals(item.getId())) {
-                result = id;
+    /**
+     * Метод для поиска заявки по id
+     *
+     * @param id - уникальный ключ
+     * @return - индекс ячейки с искомой заявкой
+     */
+    private int indexOf(String id) {
+        int rsl = -1;
+        for (int i = 0; i < position; i++) {
+            if (items[i].getId().equals(id)) {
+                rsl = i;
                 break;
             }
         }
+        return rsl;
+    }
+
+    /**
+     * Метод для поиска заявки по id
+     *
+     * @param id - уникальный ключ
+     * @return - искомая заявка
+     */
+    Item findById(String id) {
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
+    /**
+     * Метод для замены заявки
+     *
+     * @param id - уникальный ключ заменяемой заявки
+     * @param item - новая заявка
+     */
+    public String replace(String id, Item item) {
+        int index = indexOf(id);
+        String name = item.getName();
+        items[index].setName(item.getName());
+        String result = items[index].getName();
         return result;
     }
 }

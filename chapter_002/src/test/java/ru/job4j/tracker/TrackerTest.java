@@ -34,7 +34,7 @@ public class TrackerTest {
         Item item3 = new Item("First");
         Item item4 = new Item("First");
         Item[] expected = {tracker.add(item1), tracker.add(item3)};
-        Item[] actual = tracker.findByName(item4);
+        Item[] actual = tracker.findByName(item4.getName());
         assertThat(actual, is(expected));
     }
 
@@ -46,7 +46,7 @@ public class TrackerTest {
         Item item3 = new Item("Third");
         Item item4 = new Item("Four");
         Item[] items = {tracker.add(item1), tracker.add(item2), tracker.add(item3), tracker.add(item4)};
-        Item actual = tracker.findById(item3);
+        Item actual = tracker.findById(item3.getId());
         assertThat(actual.getId(), is(items[2].getId()));
     }
 
@@ -60,7 +60,18 @@ public class TrackerTest {
         tracker.add(item2);
         tracker.add(item3);
         Item item4 = new Item("Four");
-        Item actual = tracker.findById(item4);
+        Item actual = tracker.findById(item4.getId());
         assertNull(actual);
+    }
+
+    @Test
+    public void whenReplace() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        String id = bug.getId();
+        Item bugWithDesc = new Item("Bug with description");
+        tracker.replace(id, bugWithDesc);
+        assertThat(tracker.findById(id).getName(), is("Bug with description"));
     }
 }
