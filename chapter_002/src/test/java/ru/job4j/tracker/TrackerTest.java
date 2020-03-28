@@ -33,7 +33,10 @@ public class TrackerTest {
         Item item2 = new Item("Second");
         Item item3 = new Item("First");
         Item item4 = new Item("First");
-        Item[] expected = {tracker.add(item1), tracker.add(item3)};
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        Item[] expected = {item1, item3};
         Item[] actual = tracker.findByName(item4.getName());
         assertThat(actual, is(expected));
     }

@@ -69,13 +69,11 @@ public class Tracker {
      * @return - массив заявок с искомым именем
      */
     Item[] findByName(String name) {
-        Item[] temp = findAll();
-        Item[] result = new Item[temp.length];
+        Item[] result = new Item[position];
         int size = 0;
-        for (int i = 0; i < temp.length; i++) {
-            Item item = temp[i];
-            if (item.getName().equals(name)) {
-                result[size] = item;
+        for (int i = 0; i < position; i++) {
+            if (items[i].getName().equals(name)) {
+                result[size] = items[i];
                 size++;
             }
         }
@@ -117,11 +115,14 @@ public class Tracker {
      * @param id - уникальный ключ заменяемой заявки
      * @param item - новая заявка
      */
-    public String replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean result = false;
         int index = indexOf(id);
-        String name = item.getName();
-        items[index].setName(item.getName());
-        String result = items[index].getName();
+        if (index != -1) {
+            items[index].setName(item.getName());
+            String name = items[index].getName();
+            result = true;
+        }
         return result;
     }
 }
