@@ -7,7 +7,7 @@ import java.util.Random;
  * Tracker - Класс для CRUD-операций с заявками
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.4
+ * @version 1.5
  * @since 1.0
  */
 public class Tracker {
@@ -78,7 +78,7 @@ public class Tracker {
             }
         }
         result = Arrays.copyOf(result, size);
-        return result;
+        return size != 0 ? result : null;
     }
 
     /**
@@ -120,7 +120,6 @@ public class Tracker {
         int index = indexOf(id);
         if (index != -1) {
             items[index].setName(item.getName());
-            String name = items[index].getName();
             result = true;
         }
         return result;

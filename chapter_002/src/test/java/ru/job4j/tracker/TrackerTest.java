@@ -42,6 +42,20 @@ public class TrackerTest {
     }
 
     @Test
+    public void whenFindByNameThenGetNull() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("First");
+        Item item2 = new Item("Second");
+        Item item3 = new Item("First");
+        Item item4 = new Item("Four");
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        Item[] actual = tracker.findByName(item4.getName());
+        assertNull(actual);
+    }
+
+    @Test
     public void whenHaveFindByIdThenGetItem3() {
         Tracker tracker = new Tracker();
         Item item1 = new Item("First");
