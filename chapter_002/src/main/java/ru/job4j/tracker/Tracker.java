@@ -7,7 +7,7 @@ import java.util.Random;
  * Tracker - Класс для CRUD-операций с заявками
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.5
+ * @version 1.6
  * @since 1.0
  */
 public class Tracker {
@@ -123,5 +123,19 @@ public class Tracker {
             result = true;
         }
         return result;
+    }
+
+    /**
+     * Метод для удаления заявки
+     *
+     * @param id - уникальный ключ удаляемой заявки
+     */
+    public Item[] delete(String id) {
+        int index = indexOf(id);
+        items[index] = null;
+        System.arraycopy(items, index + 1, items, index, position - index);
+        items[position - 1] = null;
+        position--;
+        return items;
     }
 }
