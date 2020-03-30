@@ -104,6 +104,7 @@ public class TrackerTest {
         String id = bug.getId();
         tracker.delete(id);
         assertNull(tracker.findById(id));
+        assertThat(tracker.size(), is(2));
     }
 }
 
