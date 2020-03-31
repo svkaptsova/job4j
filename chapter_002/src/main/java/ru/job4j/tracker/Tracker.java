@@ -146,4 +146,27 @@ public class Tracker {
     public int size() {
         return position;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder rsl = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            Item item = items[i];
+            rsl.append(item);
+            rsl.append(", ");
+        }
+        return rsl.toString();
+    }
+
+    public static void main(String[] args) {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("First");
+        Item item2 = new Item("Second");
+        Item item3 = new Item("Third");
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        System.out.println(item2);
+        System.out.println(tracker);
+    }
 }
