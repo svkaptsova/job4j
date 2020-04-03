@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Matches - Игра "11"
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class Matches {
@@ -17,23 +17,40 @@ public class Matches {
         while (match > 0) {
             System.out.print("Игрок №1: ");
             int first = Integer.valueOf(input.nextLine());
-            if (first > 0 && first <= 3 && first <= match && match != 0) {
-                match = match - first;
-                System.out.println(match);
-            } else {
-                System.out.println("Неверный ход");
+            boolean right1 = first > 0 && first <= 3 && first <= match;
+            while (!right1) {
+                System.out.println("Неверный ход!");
+                System.out.print("Игрок №1: ");
+                first = Integer.valueOf(input.nextLine());
+                right1 = first > 0 && first <= 3 && first <= match;
             }
-            if (match != 0) {
+
+            match = match - first;
+            if (match == 0) {
+                System.out.println("Игрок №1 победил");
+                System.out.println("Игра окончена");
+                break;
+            } else {
+                System.out.println(match);
+            }
+
+            System.out.print("Игрок №2: ");
+            int second = Integer.valueOf(input.nextLine());
+            boolean right2 = second > 0 && second <= 3 && second <= match;
+            while (!right2) {
+                System.out.println("Неверный ход!");
                 System.out.print("Игрок №2: ");
-                int second = Integer.valueOf(input.nextLine());
-                if (second > 0 && second <= 3 && second <= match) {
-                    match = match - second;
-                    System.out.println(match);
-                } else {
-                    System.out.println("Неверный ход");
-                }
+                second = Integer.valueOf(input.nextLine());
+                right2 = second > 0 && second <= 3 && second <= match;
+            }
+
+            match = match - second;
+            if (match == 0) {
+                System.out.println("Игрок №2 победил");
+                System.out.println("Игра окончена");
+            } else {
+                System.out.println(match);
             }
         }
-        System.out.println("Игра закончена");
     }
 }
