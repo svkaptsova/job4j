@@ -6,7 +6,7 @@ import java.util.Scanner;
  * StartUI - консольное приложение для работы с классом Tracker
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class StartUI {
@@ -35,11 +35,13 @@ public class StartUI {
                 Item item = new Item(name);
                 tracker.add(item);
                 System.out.println(item);
+                System.out.println();
 
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
                 Item[] items = tracker.findAll();
                 System.out.println(items);
+                System.out.println();
 
             } else if (select == 2) {
                 System.out.println("=== Мake changes ====");
@@ -50,6 +52,7 @@ public class StartUI {
                 Item item = new Item(name);
                 boolean replaced = tracker.replace(id, item);
                 System.out.println(replaced);
+                System.out.println();
 
             } else if (select == 3) {
                 System.out.println("=== Delete item ====");
@@ -57,6 +60,7 @@ public class StartUI {
                 String id = scanner.nextLine();
                 boolean deleted = tracker.delete(id);
                 System.out.println(deleted);
+                System.out.println();
 
             } else if (select == 4) {
                 System.out.println("=== Find item by id ====");
@@ -64,6 +68,7 @@ public class StartUI {
                 String id = scanner.nextLine();
                 Item item = tracker.findById(id);
                 System.out.println(item);
+                System.out.println();
 
             } else if (select == 5) {
                 System.out.println("=== Find items by name ====");
@@ -71,16 +76,23 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
                 System.out.println(items);
+                System.out.println();
 
-        } else if (select == 6) {
-            run = false;
+            } else if (select == 6) {
+                run = false;
+            }
         }
     }
-}
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Tracker tracker = new Tracker();
+        Item item1 = new Item("First");
+        Item item2 = new Item("Second");
+        Item item3 = new Item("Third");
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
         new StartUI().init(scanner, tracker);
     }
 }

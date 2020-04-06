@@ -7,7 +7,7 @@ import java.util.Random;
  * Tracker - Класс для CRUD-операций с заявками
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.8
+ * @version 1.9
  * @since 1.0
  */
 public class Tracker {
@@ -145,5 +145,16 @@ public class Tracker {
 
     public int size() {
         return position;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder rsl = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            Item item = items[i];
+            rsl.append(item);
+            rsl.append(", ");
+        }
+        return rsl.toString();
     }
 }
