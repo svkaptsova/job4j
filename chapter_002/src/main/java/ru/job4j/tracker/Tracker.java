@@ -12,7 +12,6 @@ import java.util.Random;
  */
 public class Tracker {
 
-
     /**
      * Массив для хранения заявок
      */
@@ -79,7 +78,7 @@ public class Tracker {
             }
         }
         result = Arrays.copyOf(result, size);
-        return size != 0 ? result : null;
+        return size != 0 ? result : new Item[0];
     }
 
     /**

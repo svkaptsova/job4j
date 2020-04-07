@@ -6,7 +6,7 @@ import java.util.Scanner;
  * StartUI - консольное приложение для работы с классом Tracker
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.2
+ * @version 1.3
  * @since 1.0
  */
 public class StartUI {
@@ -38,9 +38,11 @@ public class StartUI {
                 System.out.println();
 
             } else if (select == 1) {
-                System.out.println("=== Show all items ====");
+                System.out.println("=== All Items ====");
                 Item[] items = tracker.findAll();
-                System.out.println(items);
+                for (int i = 0; i < items.length; i++) {
+                    System.out.println(items[i]);
+                }
                 System.out.println();
 
             } else if (select == 2) {
@@ -55,7 +57,7 @@ public class StartUI {
                 System.out.println();
 
             } else if (select == 3) {
-                System.out.println("=== Delete item ====");
+                System.out.println("=== Delete Item ====");
                 System.out.print("Enter id: ");
                 String id = scanner.nextLine();
                 boolean deleted = tracker.delete(id);
@@ -63,19 +65,30 @@ public class StartUI {
                 System.out.println();
 
             } else if (select == 4) {
-                System.out.println("=== Find item by id ====");
+                System.out.println("=== Search by id ====");
                 System.out.print("Enter id: ");
                 String id = scanner.nextLine();
                 Item item = tracker.findById(id);
-                System.out.println(item);
+                if (item != null) {
+                    System.out.println(item);
+                    System.out.println();
+                } else {
+                    System.out.println("Not found");
+                }
                 System.out.println();
 
             } else if (select == 5) {
-                System.out.println("=== Find items by name ====");
+                System.out.println("=== Search by name ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
-                System.out.println(items);
+                if (items.length != 0) {
+                    for (int i = 0; i < items.length; i++) {
+                        System.out.println(items[i]);
+                    }
+                } else {
+                    System.out.println("Not found");
+                }
                 System.out.println();
 
             } else if (select == 6) {
