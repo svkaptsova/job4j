@@ -7,7 +7,7 @@ import ru.job4j.oop.casting.Input;
  * StartUI - консольное приложение для работы с классом Tracker
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.5
+ * @version 1.6
  * @since 1.0
  */
 public class StartUI {
@@ -15,11 +15,11 @@ public class StartUI {
     private void showMenu() {
         System.out.println("Menu.");
         System.out.println("0. Add new Item");
-        System.out.println("1. Show all items");
-        System.out.println("2. Edit item");
-        System.out.println("3. Delete item");
-        System.out.println("4. Find item by Id");
-        System.out.println("5. Find items by name");
+        System.out.println("1. Show all Items");
+        System.out.println("2. Edit Item");
+        System.out.println("3. Delete Item");
+        System.out.println("4. Find Item by Id");
+        System.out.println("5. Find Items by name");
         System.out.println("6. Exit Program");
     }
 
@@ -32,7 +32,7 @@ public class StartUI {
         System.out.println();
     }
 
-    public static void showItems(Input input, Tracker tracker) {
+    public static void showItems(Tracker tracker) {
         System.out.println("=== All Items ====");
         Item[] items = tracker.findAll();
         for (int i = 0; i < items.length; i++) {
@@ -95,7 +95,7 @@ public class StartUI {
                 StartUI.createItem(input, tracker);
 
             } else if (select == 1) {
-                StartUI.showItems(input, tracker);
+                StartUI.showItems(tracker);
 
             } else if (select == 2) {
                 StartUI.replaceItem(input, tracker);
