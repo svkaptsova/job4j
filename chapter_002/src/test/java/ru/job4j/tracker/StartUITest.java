@@ -32,11 +32,13 @@ public class StartUITest {
 
     @Test
     public void whenReplaceItem() {
-        String[] answers = {"Id", "Name"};
-        Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
+        Item item = new Item("Item");
+        tracker.add(item);
+        String[] answers = {item.getId(), "Name"};
+        Input input = new StubInput(answers);
         StartUI.replaceItem(input, tracker);
-        Item replaced = tracker.findById("Id");
+        Item replaced = tracker.findById(answers[0]);
         Item expected = new Item("Name");
         assertThat(replaced.getName(), is(expected.getName()));
     }
