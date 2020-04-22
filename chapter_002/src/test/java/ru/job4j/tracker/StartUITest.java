@@ -1,11 +1,12 @@
 package ru.job4j.tracker;
 
-        import org.junit.Test;
-        import ru.job4j.oop.casting.Input;
-        import ru.job4j.oop.casting.StubInput;
+import org.hamcrest.Matchers;
+import org.junit.Test;
+import ru.job4j.oop.casting.Input;
+import ru.job4j.oop.casting.StubInput;
 
-        import static org.hamcrest.core.Is.is;
-        import static org.junit.Assert.*;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
 
 public class StartUITest {
     @Test
@@ -41,6 +42,21 @@ public class StartUITest {
         Item replaced = tracker.findById(answers[0]);
         Item expected = new Item("Bar");
         assertThat(replaced.getName(), is(expected.getName()));
+    }
+
+    @Test
+    public void whenDeleteItemThenGetNull() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Foo");
+        Item first = new Item("First");
+        Item second = new Item("Second");
+        tracker.add(first);
+        tracker.add(second);
+        tracker.add(item);
+        String[] answers = {item.getId()};
+        Input input = new StubInput(answers);
+        StartUI.deleteItem(input, tracker);
+        assertNull(tracker.findById(answers[0]));
     }
 
     @Test
