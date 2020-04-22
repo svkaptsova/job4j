@@ -78,7 +78,7 @@ public class Tracker {
             }
         }
         result = Arrays.copyOf(result, size);
-        return size != 0 ? result : new Item[0];
+        return size != 0 ? result : null;
     }
 
     /**
