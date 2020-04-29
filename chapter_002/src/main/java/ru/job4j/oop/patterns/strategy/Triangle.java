@@ -1,11 +1,15 @@
 package ru.job4j.oop.patterns.strategy;
 
-import ru.job4j.oop.patterns.strategy.Shape;
+import java.util.StringJoiner;
 
 public class Triangle implements Shape {
     @Override
     public String draw() {
-        String trngl = "Triangle";
-        return trngl;
+        StringJoiner pic = new StringJoiner(System.lineSeparator());
+        pic.add("  .");
+        pic.add(" ...");
+        pic.add(".....");
+        pic.add(" ");
+        return pic.toString();
     }
 }

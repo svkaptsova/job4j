@@ -1,11 +1,15 @@
 package ru.job4j.oop.patterns.strategy;
 
-import ru.job4j.oop.patterns.strategy.Shape;
+import java.util.StringJoiner;
 
 public class Square implements Shape {
     @Override
     public String draw() {
-        String sqr = "Square";
-        return sqr;
+        StringJoiner pic = new StringJoiner(System.lineSeparator());
+        pic.add(".  .  .  .");
+        pic.add(".        .");
+        pic.add(".        .");
+        pic.add(".  .  .  .");
+        return pic.toString();
     }
 }
