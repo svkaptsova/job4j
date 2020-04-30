@@ -1,4 +1,4 @@
-package ru.job4j.oop.casting;
+package ru.job4j.tracker;
 
 /**
  * Input - интерфейс ввода данных
