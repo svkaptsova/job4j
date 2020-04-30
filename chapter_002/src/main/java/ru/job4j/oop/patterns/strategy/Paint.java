@@ -10,7 +10,7 @@ package ru.job4j.oop.patterns.strategy;
 public class Paint {
     public void draw(Shape shape) {
         String foo = shape.draw();
-        System.out.println(foo);
+        System.out.print(foo);
     }
 
     public static void main(String[] args) {

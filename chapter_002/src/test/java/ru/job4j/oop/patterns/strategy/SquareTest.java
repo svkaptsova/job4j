@@ -12,10 +12,10 @@ public class SquareTest {
     public void whenDrawSquare() {
         Square sqr = new Square();
         assertThat(sqr.draw(), is(new StringJoiner(System.lineSeparator())
-                        .add(".  .  .  .")
-                        .add(".        .")
-                        .add(".        .")
-                        .add(".  .  .  .")
-                        .toString()));
+                .add(".  .  .  .")
+                .add(".        .")
+                .add(".        .")
+                .add(".  .  .  .")
+                .toString()));
     }
 }

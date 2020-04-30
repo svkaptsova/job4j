@@ -1,4 +1,5 @@
 package ru.job4j.oop.patterns.strategy;
+
 import org.junit.Test;
 
 import java.util.StringJoiner;
