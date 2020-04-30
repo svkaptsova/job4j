@@ -10,7 +10,7 @@ public class SearchNameAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         String name = input.askStr("Enter name: ");
         Item[] items = tracker.findByName(name);
-        if (items.length != 0) {
+        if (items != null) {
             for (int i = 0; i < items.length; i++) {
                 System.out.println(items[i]);
             }
