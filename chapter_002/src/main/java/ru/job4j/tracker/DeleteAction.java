@@ -1,5 +1,12 @@
 package ru.job4j.tracker;
 
+/**
+ * DeleteAction - класс для удаления заявки
+ *
+ * @author Svetlana Kaptsova (svkapcova@gmail.com)
+ * @version 1.0
+ * @since 1.0
+ */
 public class DeleteAction implements UserAction {
     @Override
     public String name() {

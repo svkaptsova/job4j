@@ -1,5 +1,12 @@
 package ru.job4j.tracker;
 
+/**
+ * SearchIdAction - класс для поиска заявки по id
+ *
+ * @author Svetlana Kaptsova (svkapcova@gmail.com)
+ * @version 1.0
+ * @since 1.0
+ */
 public class SearchIdAction implements UserAction {
     @Override
     public String name() {

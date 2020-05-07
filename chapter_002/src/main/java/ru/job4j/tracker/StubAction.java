@@ -1,5 +1,12 @@
 package ru.job4j.tracker;
 
+/**
+ * StubAction - симулятор выполнения действия
+ *
+ * @author Svetlana Kaptsova (svkapcova@gmail.com)
+ * @version 1.0
+ * @since 1.0
+ */
 public class StubAction implements UserAction {
     private boolean call = false;
 
