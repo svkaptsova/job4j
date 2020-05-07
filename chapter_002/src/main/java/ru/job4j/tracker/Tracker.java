@@ -112,7 +112,7 @@ public class Tracker {
     /**
      * Метод для замены заявки
      *
-     * @param id - уникальный ключ заменяемой заявки
+     * @param id   - уникальный ключ заменяемой заявки
      * @param item - новая заявка
      */
     public boolean replace(String id, Item item) {

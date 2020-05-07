@@ -1,5 +1,12 @@
 package ru.job4j.tracker;
 
+/**
+ * ShowAction - класс для просмотра всех заявок
+ *
+ * @author Svetlana Kaptsova (svkapcova@gmail.com)
+ * @version 1.0
+ * @since 1.0
+ */
 public class ShowAction implements UserAction {
     @Override
     public String name() {

@@ -1,5 +1,12 @@
 package ru.job4j.tracker;
 
+/**
+ * CreateAction - класс для добавления новой заявки
+ *
+ * @author Svetlana Kaptsova (svkapcova@gmail.com)
+ * @version 1.0
+ * @since 1.0
+ */
 public class CreateAction implements UserAction {
 
     @Override
