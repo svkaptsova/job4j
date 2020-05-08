@@ -24,7 +24,6 @@ public class SearchNameAction implements UserAction {
         } else {
             System.out.println("Not found");
         }
-        System.out.println();
         return true;
     }
 }
