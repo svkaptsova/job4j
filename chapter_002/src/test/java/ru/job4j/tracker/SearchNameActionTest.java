@@ -27,8 +27,8 @@ public class SearchNameActionTest {
                 is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                         .add(item1.getId() + " " + item1.getName())
                         .add(item2.getId() + " " + item2.getName())
+                        .add("")
                         .toString()));
-
         System.setOut(def);
     }
 }
