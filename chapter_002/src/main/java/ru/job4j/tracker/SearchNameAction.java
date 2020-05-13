@@ -4,7 +4,7 @@ package ru.job4j.tracker;
  * SearchNameAction - класс для поиска заявки по имени
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.0
+ * @version 1.1
  * @since 1.0
  */
 public class SearchNameAction implements UserAction {
