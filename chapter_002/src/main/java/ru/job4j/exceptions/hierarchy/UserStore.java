@@ -45,18 +45,13 @@ public class UserStore {
 
     public static void main(String[] args) {
         User[] users = {new User("Barsik", true)};
-        User user = new User("Barsik", true);
         try {
-            if (findUser(users, "Mursik") != null) {
-                System.out.println("Barsik is valid");
-            }
-        } catch (UserNotFoundException unf) {
-            unf.printStackTrace();
-        }
-        try {
+            User user = findUser(users, "Barsik");
             if (validate(user)) {
                 System.out.println("This user has an access");
             }
+        } catch (UserNotFoundException unf) {
+            unf.printStackTrace();
         } catch (UserInvalidException uivd) {
             uivd.printStackTrace();
         }
