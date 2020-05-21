@@ -2,9 +2,7 @@ package ru.job4j.exceptions;
 
 public class FactRec {
     public static int calc(int n) {
-        int rsl;
-        rsl = (n == 0 || n == 1 ? 1 : calc(n - 1) * n);
-        return rsl;
+        return (n > 1 ? calc(n - 1) * n : 1);
     }
 
     public static void main(String[] args) {
