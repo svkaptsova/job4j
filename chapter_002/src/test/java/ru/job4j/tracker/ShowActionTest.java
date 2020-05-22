@@ -22,6 +22,7 @@ public class ShowActionTest {
         assertThat(new String(out.toByteArray()),
                 is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                         .add(foo.getId() + " " + foo.getName())
+                        .add("")
                         .toString()));
         System.setOut(def);
     }

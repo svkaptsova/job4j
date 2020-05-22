@@ -18,6 +18,7 @@ public class ShowAction implements UserAction {
         Item[] items = tracker.findAll();
         for (int i = 0; i < items.length; i++) {
             System.out.print(items[i]);
+            System.out.println();
         }
         System.out.println();
         return true;

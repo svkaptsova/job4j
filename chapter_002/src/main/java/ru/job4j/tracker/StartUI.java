@@ -4,7 +4,7 @@ package ru.job4j.tracker;
  * StartUI - консольное приложение для работы с классом Tracker
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.7
+ * @version 1.8
  * @since 1.0
  */
 public class StartUI {
@@ -20,14 +20,14 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
-            int select = Integer.valueOf(input.askStr("Choice: "));
+            int select = Integer.valueOf(input.askInt("Choice: ", 5));
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
     }
 
     public static void main(String[] args) {
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {new CreateAction(), new ShowAction(),
                 new ReplaceAction(), new DeleteAction(),
