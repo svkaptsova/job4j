@@ -1,15 +1,14 @@
 package ru.job4j.tracker;
 
-import ru.job4j.tracker.Input;
-
+/**
+ * StubInput - симулятор ввода данных пользователем
+ *
+ * @author Svetlana Kaptsova (svkapcova@gmail.com)
+ * @version 1.2
+ * @since 1.0
+ */
 public class StubInput implements Input {
-    /**
-     * StubInput - симулятор ввода данных пользователем
-     *
-     * @author Svetlana Kaptsova (svkapcova@gmail.com)
-     * @version 1.1
-     * @since 1.0
-     */
+
     private String[] answers;
     private int position = 0;
 
@@ -24,11 +23,16 @@ public class StubInput implements Input {
 
     @Override
     public int askInt(String question) {
-        return Integer.valueOf(askStr(question));
+        return Integer.parseInt(askStr(question));
     }
 
     @Override
     public int askInt(String question, int max) {
-        return askInt(question);
+        int select = askInt(question);
+        if (select >= 0 && select <= max) {
+            return select;
+        } else {
+            throw new IllegalStateException(String.format("Out of about %s > [0, %s]", select, max));
+        }
     }
 }
