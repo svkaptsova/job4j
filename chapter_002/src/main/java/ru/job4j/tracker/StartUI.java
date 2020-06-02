@@ -20,14 +20,15 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
-            int select = Integer.valueOf(input.askInt("Choice: ", 5));
+            int select = input.askInt("Choice: ", 5);
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
     }
 
     public static void main(String[] args) {
-        Input input = new ValidateInput();
+        Input input = new ConsoleInput();
+        Input validate = new ValidateInput(input);
         Tracker tracker = new Tracker();
         UserAction[] actions = {new CreateAction(), new ShowAction(),
                 new ReplaceAction(), new DeleteAction(),
@@ -38,6 +39,6 @@ public class StartUI {
         tracker.add(item1);
         tracker.add(item2);
         tracker.add(item3);
-        new StartUI().init(input, tracker, actions);
+        new StartUI().init(validate, tracker, actions);
     }
 }
