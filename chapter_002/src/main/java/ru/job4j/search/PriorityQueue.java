@@ -21,10 +21,10 @@ public class PriorityQueue {
      */
     public void put(Task task) {
         for (int index = 0; index < tasks.size(); index++) {
-            if (task.getPriority() >= tasks.get(index).getPriority()) {
+            if (tasks.get(index) != null && task.getPriority() >= tasks.get(index).getPriority()) {
                 this.tasks.add(index, task);
             } else {
-                this.tasks.add(tasks.size(), task);
+                this.tasks.add(tasks.size() -1, task);
             }
         }
     }
