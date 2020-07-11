@@ -20,8 +20,7 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
-        int index = 0;
-        for (Task element : tasks) {
+        for (int index = 0; index < tasks.size(); index++) {
             if (task.getPriority() >= tasks.get(index).getPriority()) {
                 this.tasks.add(index, task);
             } else {
