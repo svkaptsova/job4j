@@ -18,8 +18,8 @@ public class ConvertList2Array {
      * @param cells - количество групп
      */
     public static int[][] toArray(List<Integer> list, int cells) {
-        int groups = (int) Math.ceil((double) list.size() / cells);
-        int[][] array = new int[groups][cells];
+        int rows = (int) Math.ceil((double) list.size() / cells);
+        int[][] array = new int[rows][cells];
         int row = 0, cell = 0;
         for (Integer num : list) {
             if (cell >= cells) {
