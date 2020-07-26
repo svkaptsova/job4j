@@ -1,26 +1,23 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
  * Tracker - Класс для CRUD-операций с заявками
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.9
+ * @version 1.10
  * @since 1.0
  */
 public class Tracker {
 
     /**
-     * Массив для хранения заявок
+     * Список заявок
      */
-    private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<>();
 
-    /**
-     * Указатель ячейки для новой заявки
-     */
-    private int position = 0;
 
     /**
      * Метод добавления заявки в хранилище
@@ -29,7 +26,7 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(generateId());
-        items[position++] = item;
+        items.add(item);
         return item;
     }
 
@@ -46,19 +43,16 @@ public class Tracker {
     /**
      * Метод для получения списка всех заявок
      *
-     * @return массив заявок без пустых ячеек
+     * @return список заявок без пустых ячеек
      */
-    public Item[] findAll() {
-        Item[] result = new Item[items.length];
-        int size = 0;
-        for (int i = 0; i < items.length; i++) {
-            Item name = items[i];
+    public List<Item> findAll() {
+        List<Item> result = new ArrayList<>(items.size());
+        for (int i = 0; i < items.size(); i++) {
+            Item name = items.get(i);
             if (name != null) {
-                result[size] = name;
-                size++;
+                result.add(name);
             }
         }
-        result = Arrays.copyOf(result, size);
         return result;
     }
 
@@ -66,31 +60,28 @@ public class Tracker {
      * Метод для поиска заявки по имени
      *
      * @param name - имя заявки
-     * @return - массив заявок с искомым именем
+     * @return - список заявок с искомым именем
      */
-    Item[] findByName(String name) {
-        Item[] result = new Item[position];
-        int size = 0;
-        for (int i = 0; i < position; i++) {
-            if (items[i].getName().equals(name)) {
-                result[size] = items[i];
-                size++;
+    List<Item> findByName(String name) {
+        List<Item> result = new ArrayList<>();
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equals(name)) {
+                result.add(items.get(i));
             }
         }
-        result = Arrays.copyOf(result, size);
-        return size != 0 ? result : null;
+        return result.size() != 0 ? result : null;
     }
 
     /**
      * Метод для поиска заявки по id
      *
      * @param id - уникальный ключ
-     * @return - индекс ячейки с искомой заявкой
+     * @return - индекс элемента с искомой заявкой
      */
     private int indexOf(String id) {
         int rsl = -1;
-        for (int i = 0; i < position; i++) {
-            if (items[i].getId().equals(id)) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getId().equals(id)) {
                 rsl = i;
                 break;
             }
@@ -106,7 +97,7 @@ public class Tracker {
      */
     Item findById(String id) {
         int index = indexOf(id);
-        return index != -1 ? items[index] : null;
+        return index != -1 ? items.get(index) : null;
     }
 
     /**
@@ -119,7 +110,7 @@ public class Tracker {
         boolean result = false;
         int index = indexOf(id);
         if (index != -1) {
-            items[index].setName(item.getName());
+            items.get(index).setName(item.getName());
             result = true;
         }
         return result;
@@ -133,24 +124,22 @@ public class Tracker {
     public boolean delete(String id) {
         boolean result = false;
         int index = indexOf(id);
-        if (index != -1 && index < position) {
-            System.arraycopy(items, index + 1, items, index, position - index);
-            items[position - 1] = null;
-            position--;
+        if (index != -1 && index < items.size()) {
+            items.remove(items.get(index));
             result = true;
         }
         return result;
     }
 
     public int size() {
-        return position;
+        return items.size();
     }
 
     @Override
     public String toString() {
         StringBuilder rsl = new StringBuilder();
-        for (int i = 0; i < position; i++) {
-            Item item = items[i];
+        for (int i = 0; i < items.size(); i++) {
+            Item item = items.get(i);
             rsl.append(item);
             rsl.append(", ");
         }
