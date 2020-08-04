@@ -12,15 +12,31 @@ import static org.junit.Assert.*;
 public class NotifyAccountTest {
 
     @Test
-    public void sent() {
+    public void whenPutDifferentThenGetBoth() {
         List<Account> accounts = Arrays.asList(
-                new Account("123", "Petr Arsentev", "eDer3432f"),
-                new Account("142", "Petr Arsentev", "000001")
+                new Account("1234 567810", "Svetlana Kaptsova", "eDer3432f"),
+                new Account("1234 781011", "Svetlana Kaptsova", "000001")
         );
         HashSet<Account> expect = new HashSet<>(
                 Arrays.asList(
-                        new Account("123", "Petr Arsentev", "eDer3432f"),
-                        new Account("142", "Petr Arsentev", "000001")
+                        new Account("1234 567810", "Svetlana Kaptsova", "eDer3432f"),
+                        new Account("1234 781011", "Svetlana Kaptsova", "000001")
+                )
+        );
+        assertThat(NotifyAccount.sent(accounts), is(expect));
+    }
+
+    @Test
+    public void whenPutTheSameThenGetOnlyOne() {
+        List<Account> accounts = Arrays.asList(
+                new Account("1234 567810", "Svetlana Kaptsova", "eDer3432f"),
+                new Account("1234 567810", "Svetlana Kaptsova", "eDer3432f"),
+                new Account("1234 781011", "Svetlana Kaptsova", "000001")
+        );
+        HashSet<Account> expect = new HashSet<>(
+                Arrays.asList(
+                        new Account("1234 567810", "Svetlana Kaptsova", "eDer3432f"),
+                        new Account("1234 781011", "Svetlana Kaptsova", "000001")
                 )
         );
         assertThat(NotifyAccount.sent(accounts), is(expect));
