@@ -1,4 +1,5 @@
 package ru.job4j.collection.bank;
+
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
