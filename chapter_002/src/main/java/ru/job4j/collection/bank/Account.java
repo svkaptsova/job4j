@@ -2,6 +2,13 @@ package ru.job4j.collection.bank;
 
 import java.util.Objects;
 
+/**
+ * Account - модель банковского счета
+ *
+ * @author Svetlana Kaptsova (svkapcova@gmail.com)
+ * @version 1.0
+ * @since 1.0
+ */
 public class Account {
     private String requisite;
     private double balance;
