@@ -16,7 +16,8 @@ public class ItemSorterTest {
         Item second = new Item(2, "Second");
         Item third = new Item(3, "Third");
         List<Item> items = Arrays.asList(second, third, first);
-        assertThat(srt.sortUpId(items), is((Arrays.asList(first, second, third))));
+        srt.sortUpId(items);
+        assertThat(items, is((Arrays.asList(first, second, third))));
     }
 
     @Test
@@ -26,7 +27,8 @@ public class ItemSorterTest {
         Item second = new Item(2, "Second");
         Item third = new Item(3, "Third");
         List<Item> items = Arrays.asList(second, first, third);
-        assertThat(srt.sortUpName(items), is((Arrays.asList(first, second, third))));
+        srt.sortUpName(items);
+        assertThat(items, is((Arrays.asList(first, second, third))));
     }
 
     @Test
@@ -36,6 +38,7 @@ public class ItemSorterTest {
         Item second = new Item(2, "Second");
         Item third = new Item(3, "Third");
         List<Item> items = Arrays.asList(second, third, first);
-        assertThat(srt.sortDown(items), is((Arrays.asList(third, second, first))));
+        srt.sortDown(items);
+        assertThat(items, is((Arrays.asList(third, second, first))));
     }
 }
