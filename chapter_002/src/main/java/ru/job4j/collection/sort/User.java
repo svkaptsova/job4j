@@ -2,6 +2,13 @@ package ru.job4j.collection.sort;
 
 import java.util.Objects;
 
+/**
+ * User - модель пользователя
+ *
+ * @author Svetlana Kaptsova (svkapcova@gmail.com)
+ * @version 1.0
+ * @since 1.0
+ */
 public class User implements Comparable<User> {
     private String name;
     private int age;
@@ -11,9 +18,14 @@ public class User implements Comparable<User> {
         this.age = age;
     }
 
+    /**
+     * Метод для сортировки пользователей по имени или возрасту
+     *
+     * @param user - пользователь
+     */
     @Override
     public int compareTo(User user) {
-        int rsl = 0;
+        int rsl = this.name.compareTo(user.name);
         if (user.name.equals(this.name)) {
             rsl = Integer.compare(age, user.age);
         }
@@ -28,7 +40,7 @@ public class User implements Comparable<User> {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-       User user = (User) o;
+        User user = (User) o;
         return age == user.age && Objects.equals(name, user.name);
     }
 
