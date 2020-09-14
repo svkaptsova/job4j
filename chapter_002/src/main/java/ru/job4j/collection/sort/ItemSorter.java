@@ -17,10 +17,8 @@ public class ItemSorter {
      *
      * @param items - список заявок
      */
-    public static List<Item> sortUpId(List<Item> items) {
+    public static void sortUpId(List<Item> items) {
         Collections.sort(items);
-        items = items;
-        return items;
     }
 
     /**
@@ -28,10 +26,8 @@ public class ItemSorter {
      *
      * @param items - список заявок
      */
-    public static List<Item> sortUpName(List<Item> items) {
+    public static void sortUpName(List<Item> items) {
         items.sort(new SortByNameItem());
-        items = items;
-        return items;
     }
 
     /**
@@ -39,9 +35,7 @@ public class ItemSorter {
      *
      * @param items - список заявок
      */
-    public static List<Item> sortDown(List<Item> items) {
+    public static void sortDown(List<Item> items) {
         items.sort(Collections.reverseOrder());
-        items = items;
-        return items;
     }
 }
