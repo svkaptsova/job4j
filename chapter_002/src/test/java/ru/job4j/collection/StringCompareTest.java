@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class StringCompareTest {
     @Test
-    public void whenStringsAreEqualThenZero () {
+    public void whenStringsAreEqualThenZero() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Ivanov",
@@ -19,7 +19,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void whenLeftLessThanRightResultShouldBeNegative () {
+    public void whenLeftLessThanRightThenNegative() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Ivanov",
@@ -29,7 +29,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void whenLeftGreaterThanRightResultShouldBePositive () {
+    public void whenLeftGreaterThanRightThenPositive() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Petrov",
@@ -39,7 +39,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void secondCharOfLeftGreaterThanRightShouldBePositive(){
+    public void whenSecondCharOfLeftGreaterThanRightThenPositive() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Petrov",
@@ -49,7 +49,7 @@ public class StringCompareTest {
     }
 
     @Test
-    public void secondCharOfLeftLessThanRightShouldBeNegative(){
+    public void whenSecondCharOfLeftLessThanRightThenNegative() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "Patrova",
