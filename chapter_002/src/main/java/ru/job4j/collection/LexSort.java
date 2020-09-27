@@ -10,14 +10,12 @@ public class LexSort implements Comparator<String> {
         int result = 0;
         int size = Math.min(numbers1.length, numbers2.length);
         for (int i = 0; i < size; i++) {
-            if (numbers1.length == numbers2.length) {
                 int rsl = Integer.compare(Integer.valueOf(numbers1[i]), Integer.valueOf(numbers2[i]));
                 if (rsl != 0) {
                     result = rsl;
                     break;
                 }
             }
-        }
         if (result == 0) {
             result = Integer.compare(numbers1.length, numbers2.length);
         }
