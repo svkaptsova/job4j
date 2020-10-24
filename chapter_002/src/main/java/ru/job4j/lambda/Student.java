@@ -13,7 +13,7 @@ public class Student {
             return mark;
         }
 
-        public  String getName(){
+        public  String getName() {
             return name;
         }
 

@@ -14,7 +14,7 @@ public class Fi {
                 new Student(new Mark("mark 2"), "Second", 20),
                 new Student(new Mark("mark 3"), "Third", 30)
                 );
-                Comparator <Student> comparator = new Comparator<Student>() {
+                Comparator<Student> comparator = new Comparator<Student>() {
                     @Override
                     public int compare(Student st1, Student st2) {
                         return st2.getAge() - st1.getAge();
