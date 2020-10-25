@@ -10,17 +10,22 @@ public class Lmbd {
                 new String("Seventh"),
                 new String("Second")
         };
-        Comparator<String> compStr = (left, right) -> left.compareTo(right);
+        Comparator<String> compStr = (left, right) -> {
+            System.out.println("Sorted up:");
+            return left.compareTo(right);
+        };
         Arrays.sort(strings, compStr);
-        System.out.println("Sorted up:");
         for (String str : strings) {
             System.out.println(str);
         }
 
-        Comparator<String> compReverse = (left, right) -> right.length() - left.length();
+        Comparator<String> compReverse = (left, right) -> {
+            System.out.println();
+            System.out.println("Sorted down:");
+            return right.length() - left.length();
+        };
+
         Arrays.sort(strings, compReverse);
-        System.out.println();
-        System.out.println("Sorted down:");
         for (String str : strings) {
             System.out.println(str);
         }
