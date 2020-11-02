@@ -1,12 +1,13 @@
 package ru.job4j.search;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 /**
  * PhoneDictionary - телефонный справочник
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.0
+ * @version 1.2
  * @since 1.0
  */
 public class PhoneDictionary {
@@ -23,10 +24,16 @@ public class PhoneDictionary {
      * @return Список подошедших пользователей.
      */
     public ArrayList<Person> find(String key) {
+        Predicate<Person> contName = (person) -> person.getName() != null && person.getName().contains(key);
+        Predicate<Person> contSurname = (person) -> person.getSurname() != null && person.getSurname().contains(key);
+        Predicate<Person> contAddress = (person) -> person.getAddress() != null && person.getAddress().contains(key);
+        Predicate<Person> contPhone = (person) -> person.getPhone() != null && person.getPhone().contains(key);
+
+        Predicate<Person> combine = contName.or(contSurname.or(contPhone.or(contAddress)));
         ArrayList<Person> result = new ArrayList<>();
-        for (int index = 0; index < persons.size(); index++) {
-            if (persons.get(index).getName().contains(key) || persons.get(index).getSurname().contains(key) || persons.get(index).getAddress().contains(key) || persons.get(index).getPhone().contains(key)) {
-                result.add(persons.get(index));
+        for (Person person : persons) {
+            if (combine.test(person)) {
+                result.add(person);
             }
         }
         return result;
