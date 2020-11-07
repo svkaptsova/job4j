@@ -31,9 +31,9 @@ public class Address {
 
     @Override
     public String toString() {
-        return "city:" + city + ", " +
-                "street:" + street + ", " +
-                "home:" + home + ", " +
-                "apartment:" + apartment;
+        return "city:" + city + ", "
+                + "street:" + street + ", "
+                + "home:" + home + ", "
+                + "apartment:" + apartment;
     }
 }
