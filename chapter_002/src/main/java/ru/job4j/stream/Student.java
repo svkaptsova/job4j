@@ -21,6 +21,12 @@ public class Student {
     }
 
     @Override
+    public String toString() {
+        return "score:" + score + ", "
+                + "surname:" + surname;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
