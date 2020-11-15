@@ -6,7 +6,7 @@ import java.util.*;
  * BankService - класс для проведения операций с банковскими счетами
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.0
+ * @version 1.1
  * @since 1.0
  */
 public class BankService {
@@ -40,14 +40,14 @@ public class BankService {
      * @param passport - номер паспорта
      */
     public User findByPassport(String passport) {
-        User result = null;
-        for (User user : users.keySet()) {
-            if (passport.equals(user.getPassport())) {
-                result = user;
-                break;
-            }
+        User user = null;
+        Optional<User> usrs = users.keySet().stream().
+                filter(x -> Objects.equals(passport, x.getPassport())).
+                findFirst();
+        if (usrs.isPresent()) {
+            user = usrs.get();
         }
-        return result;
+        return user;
     }
 
     /**
@@ -61,11 +61,11 @@ public class BankService {
         User user = findByPassport(passport);
         if (user != null) {
             List<Account> req = users.get(user);
-            for (Account accounts : req) {
-                if (requisite.equals(accounts.getRequisite())) {
-                    account = accounts;
-                    break;
-                }
+            Optional<Account> accounts = req.stream().
+                    filter(x -> Objects.equals(requisite, x.getRequisite())).
+                    findFirst();
+            if (accounts.isPresent()) {
+                account = accounts.get();
             }
         }
         return account;
