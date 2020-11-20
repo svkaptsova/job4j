@@ -51,7 +51,6 @@ public class SchoolTest {
     @Test
     public void whenCollectSubclassC() {
         School sc = new School();
-
         List<Student> rsl = sc.collect(
                 students, (student) -> student.getScore() < 50
         );
@@ -59,6 +58,19 @@ public class SchoolTest {
         expected.add(new Student(10, "Surname1"));
         expected.add(new Student(20, "Surname2"));
         expected.add(new Student(30, "Surname3"));
+        expected.add(new Student(40, "Surname4"));
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenHighScore() {
+        School sc = new School();
+        List<Student> rsl = sc.levelOf(students, 30);
+        List<Student> expected = new ArrayList<>();
+        expected.add(new Student(100, "Surname8"));
+        expected.add(new Student(80, "Surname7"));
+        expected.add(new Student(70, "Surname6"));
+        expected.add(new Student(50, "Surname5"));
         expected.add(new Student(40, "Surname4"));
         assertThat(rsl, is(expected));
     }
