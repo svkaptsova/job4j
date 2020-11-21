@@ -7,7 +7,7 @@ import java.util.function.Predicate;
  * PhoneDictionary - телефонный справочник
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.2
+ * @version 1.3
  * @since 1.0
  */
 public class PhoneDictionary {
@@ -31,7 +31,7 @@ public class PhoneDictionary {
 
         Predicate<Person> combine = contName.or(contSurname.or(contPhone.or(contAddress)));
         ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
+        for (var person : persons) {
             if (combine.test(person)) {
                 result.add(person);
             }

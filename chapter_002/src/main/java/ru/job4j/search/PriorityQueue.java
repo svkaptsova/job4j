@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * PriorityQueue - коллекция очередь с приоритетами
  *
  * @author Svetlana Kaptsova (svkapcova@gmail.com)
- * @version 1.0
+ * @version 1.1
  * @since 1.0
  */
 public class PriorityQueue {
@@ -19,8 +19,8 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
-        int index = 0;
-        for (Task element : tasks) {
+        var index = 0;
+        for (var element : tasks) {
             if (task.getPriority() <= tasks.get(index).getPriority()) {
                 break;
             }
